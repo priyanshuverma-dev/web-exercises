@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is JavaScript Tutorial</title>
+    </head>
+    <style>
+        .heading {
+            color: blue;
+        }
+    </style>
+    <body>
+        <input value="Hi" type="text">
+        <button>Submit</button>
+        <div class="container">
+            <h1>Names</h1>
+        </div>
+        <script>
+            const input = document.querySelector("input")
+            const h1 = document.querySelector("h1")
+            const button = document.querySelector("button")
+            const div = document.getElementsByClassName('container')
+            let container = div.item(0)
+            // console.log(container)
+            button.addEventListener('click',()=>{
+                fetchdata()
+                // clearInterval(timeId)
+                // clearTimeout(timeId)
+
+                // let name =  input.value;
+                // container.insertAdjacentHTML('afterend', `<p>${name}</p>`)
+                // h1.classList.add('heading')
+
+            })
+            button.addEventListener('mouseout',()=>{
+                h1.classList.remove('heading')
+
+            })
+
+            // let timeId =  setTimeout(() => {
+            //     console.log("Hello World")
+            // }, 3000);
+
+            // let timeId =  setInterval(() => {
+            //     console.log("Hello World")
+            // }, 2000);
+            
+
+            async function fetchdata(){
+
+            try {
+                // let response = await fetch("http://localhost:8080/users");
+                throw new Error("API fetching failed")
+                console.log(response)
+
+            } catch (error) {
+                console.error(error)
+            }
+            }
+
+
+
+
+    
+
+        </script>
+    </body>
+
+</html>

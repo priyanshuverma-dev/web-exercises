@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is JavaScript Tutorial</title>
+    </head>
+    <style>
+        .heading {
+            color: blue;
+        }
+    </style>
+    <body>
+        <h1>Users</h1>
+        <button>Fetch</button>
+        <div class="container">
+            <ul>
+
+            </ul>
+        </div>
+        <script>
+            const button = document.querySelector("button")
+            const div = document.getElementsByClassName('container')
+            let container = div.item(0)
+            let list =  container.querySelector('ul')
+            
+            button.addEventListener('click',()=>{
+                fetchdata()
+ 
+
+            })
+            function fetchdata(){
+
+            // try {
+                let response =  fetch("http://localhost:8080/users");
+                // const data =  response.json()
+                response.then((data)=>{
+
+                    data.json().then((users)=>{
+
+                        console.log(users)
+
+
+                        for (let index = 0; index < users.length; index++) {
+                            const element = users[index];
+                            
+                            list.insertAdjacentHTML('afterbegin',`<li>${element.name}</li>`)
+                            
+                        }
+
+
+                       
+
+
+
+                    })
+
+                }).catch((err)=>{
+                    console.error(error)
+                })
+
+            // } catch (error) {
+            //     console.error(error)
+            // }
+            }
+
+
+
+
+    
+
+        </script>
+    </body>
+
+</html>
